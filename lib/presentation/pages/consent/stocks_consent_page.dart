@@ -89,21 +89,6 @@ class StocksConsentPage extends ConsumerWidget {
               ...stocksNotifier.selectedAccounts.map((e) {
                 return ListTile(title: Text(e.maskedAccNumber),);
               },),   
-              ListView(
-                shrinkWrap: true,
-                children: stocksNotifier.selectedAccounts.map((e) {
-                  return ListTile(
-                    title: Text(e.maskedAccNumber),
-                  );
-                  // ProviderScope(
-                  //   parent: container,
-                  //   child: BankContainer(
-                  //     isBorder: false,
-                  //     acc: e,
-                  //   )
-                  // );
-                }).toList(),
-              ),
               Sizes.h8,
               const Divider(),
               AppTextButton(
