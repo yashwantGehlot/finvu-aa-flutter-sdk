@@ -3,10 +3,10 @@ import 'package:finvu_bank_pfm/core/utilities/sizes.dart';
 import 'package:finvu_bank_pfm/core/utilities/styleguide.dart';
 import 'package:finvu_bank_pfm/presentation/pages/select_institution/providers/select_institution_notifier_provider.dart';
 import 'package:finvu_bank_pfm/presentation/pages/verify_bank_account/providers/verify_account_notifier_provider.dart';
+import 'package:finvu_bank_pfm/presentation/pages/verify_bank_account/verify_mobile_bank_account.dart';
 import 'package:finvu_bank_pfm/presentation/providers/user_info_provider.dart';
 import 'package:finvu_bank_pfm/presentation/widgets/app_buttons.dart';
 import 'package:finvu_bank_pfm/presentation/widgets/bank_container.dart';
-import 'package:finvu_bank_pfm/presentation/widgets/bottom_sheet_otp.dart';
 import 'package:finvu_bank_pfm/presentation/widgets/custom_app_scaffold.dart';
 import 'package:finvu_bank_pfm/presentation/widgets/footer.dart';
 import 'package:flutter/material.dart';
@@ -60,14 +60,14 @@ class VerifyBankAccount extends ConsumerWidget {
                         notifier.accLinking(
                           context: context,
                           onOtpSent: (){
-                            showModalBottomSheet(
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
-                                ),
-                                context: context,
-                                builder: (context){
-                                  return ProviderScope(parent: container, child: const OtpWidget());
-                                }
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProviderScope(
+                                  parent: container,
+                                  child: const VerifyMobileBankAccount()
+                                )
+                              )
                             );
                           },
                           ifVerified: (){

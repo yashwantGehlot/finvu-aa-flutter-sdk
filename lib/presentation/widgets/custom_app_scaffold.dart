@@ -48,6 +48,7 @@ class CustomAppScaffold extends ConsumerWidget {
           child: Scaffold(
             bottomNavigationBar: bottomNavigationBar,
             appBar: appBar ?? defaultAppBar,
+            resizeToAvoidBottomInset: false,
             body: SafeArea(
               top: false,
               left: false,
